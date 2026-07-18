@@ -1,10 +1,19 @@
+import { useInView } from "@/hooks/useInView";
+
 export default function Footer() {
+  const { ref, visible } = useInView(0.1);
+
   return (
-    <footer className="bg-[#1F1F1F] py-16 px-6 md:px-20">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="bg-[#1F1F1F] py-12 md:py-16 px-6 md:px-12 lg:px-20">
+      <div
+        ref={ref}
+        className={`max-w-6xl mx-auto ${
+          visible ? "animate-fade-in-up" : "opacity-0"
+        }`}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className="sm:col-span-2 md:col-span-2">
             <h2 className="font-playfair text-2xl text-white mb-4">
               SinergiLaundry
             </h2>
@@ -20,13 +29,17 @@ export default function Footer() {
               Navigasi
             </h3>
             <ul className="space-y-3">
-              {["Beranda", "Layanan", "Harga"].map((item) => (
-                <li key={item}>
+              {[
+                { label: "Beranda", href: "#" },
+                { label: "Layanan", href: "#services" },
+                { label: "Harga", href: "#pricing" },
+              ].map((link) => (
+                <li key={link.label}>
                   <a
-                    href="#"
+                    href={link.href}
                     className="font-poppins text-sm text-gray-400 hover:text-white transition-colors duration-300"
                   >
-                    {item}
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -40,13 +53,13 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 font-poppins text-sm text-gray-400">
               <li>Jl. Contoh No. 123, Semarang</li>
-              <li>+62 812 3456 7890</li>
+              <li>+62 821 4629 468</li>
               <li>info@sinergilaundry.id</li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-white/10 mt-10 md:mt-12 pt-6 md:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-center">
           <p className="font-poppins text-xs text-gray-500">
             &copy; 2026 Sinergi Laundry.
           </p>

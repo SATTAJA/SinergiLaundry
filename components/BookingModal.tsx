@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const layananOptions = ["Cuci Lipat", "Dry Cleaning", "Shoe Care"];
+const layananOptions = ["Cuci Lipat", "Cuci Kering", "Perawatan Sepatu"];
 
 export default function BookingModal({
   isOpen,
@@ -25,8 +25,19 @@ export default function BookingModal({
     e.preventDefault();
 
     const bulan = [
-      "", "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-      "Juli", "Agustus", "September", "Oktober", "November", "Desember",
+      "",
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "November",
+      "Desember",
     ];
     const [tahun, bulanIdx, hari] = jadwalTanggal.split("-");
     const tgl = `${Number(hari)} ${bulan[Number(bulanIdx)]} ${tahun}`;
@@ -35,10 +46,15 @@ export default function BookingModal({
     const message = `Halo, saya ingin booking layanan SinergiLaundry.
 
 Nama: ${nama}
+
 Alamat: ${alamat}
+
 Nomor HP: ${nomorHP}
+
 Jenis layanan: ${layanan}
+
 Perkiraan berat: ${berat} kg
+
 Jadwal penjemputan: ${jadwalLengkap}
 
 Mohon konfirmasi apakah jadwal tersebut tersedia. Terima kasih.`;
@@ -53,15 +69,15 @@ Mohon konfirmasi apakah jadwal tersebut tersedia. Terima kasih.`;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 animate-modal-backdrop"
       onClick={onClose}
     >
       <div
-        className="bg-white w-full max-w-lg mx-4 p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="bg-white w-full max-w-lg p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto animate-modal-content"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="font-playfair text-2xl text-[#1F1F1F]">
+        <div className="flex justify-between items-center mb-5 md:mb-6">
+          <h2 className="font-playfair text-xl sm:text-2xl text-[#1F1F1F]">
             Booking Layanan
           </h2>
           <button
@@ -72,7 +88,7 @@ Mohon konfirmasi apakah jadwal tersebut tersedia. Terima kasih.`;
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
           <div>
             <label className="font-poppins text-xs text-gray-500 uppercase tracking-wider">
               Nama
@@ -159,21 +175,21 @@ Mohon konfirmasi apakah jadwal tersebut tersedia. Terima kasih.`;
                 required
                 value={jadwalTanggal}
                 onChange={(e) => setJadwalTanggal(e.target.value)}
-                className={`${inputClass} flex-1`}
+                className={`${inputClass} flex-1 min-w-0`}
               />
               <input
                 type="time"
                 required
                 value={jadwalJam}
                 onChange={(e) => setJadwalJam(e.target.value)}
-                className={`${inputClass} w-32`}
+                className={`${inputClass} w-28 sm:w-32 flex-shrink-0`}
               />
             </div>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-[#3F5D45] text-white font-poppins text-sm py-4 mt-2 hover:bg-[#2e4a33] transition-colors duration-300 tracking-wider uppercase"
+            className="w-full bg-[#3F5D45] text-white font-poppins text-sm py-3 md:py-4 mt-2 hover:bg-[#2e4a33] transition-all duration-300 tracking-wider uppercase active:scale-[0.98]"
           >
             Kirim ke WhatsApp
           </button>
