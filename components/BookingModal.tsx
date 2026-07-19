@@ -46,15 +46,10 @@ export default function BookingModal({
     const message = `Halo, saya ingin booking layanan SinergiLaundry.
 
 Nama: ${nama}
-
 Alamat: ${alamat}
-
 Nomor HP: ${nomorHP}
-
 Jenis layanan: ${layanan}
-
 Perkiraan berat: ${berat} kg
-
 Jadwal penjemputan: ${jadwalLengkap}
 
 Mohon konfirmasi apakah jadwal tersebut tersedia. Terima kasih.`;
