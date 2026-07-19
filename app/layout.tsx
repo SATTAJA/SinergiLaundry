@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const playfairDisplay = Playfair_Display ({
   variable: "--font-playfair",
@@ -29,7 +30,9 @@ export default function RootLayout({
       lang="id"
       className={`${playfairDisplay.variable} ${poppins.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">{children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
