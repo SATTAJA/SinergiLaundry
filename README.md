@@ -2,7 +2,7 @@ SinergiLaundry
 
 **SinergiLaundry** is a modern and responsive laundry service landing page designed to help customers discover laundry services, view transparent pricing, and book directly via WhatsApp.
 
-##Features
+Features
 
 * Modern and responsive landing page
 * Clean hero section
@@ -12,13 +12,13 @@ SinergiLaundry
 * Mobile-friendly design
 * Smooth scrolling navigation
 
-##Tech Stack
+Tech Stack
 
 * Next.js
 * TypeScript
 * Tailwind CSS
 
-##Sections
+Sections
 
 * Hero
 * Services
