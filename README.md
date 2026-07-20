@@ -1,4 +1,4 @@
-#SinergiLaundry
+SinergiLaundry
 
 **SinergiLaundry** is a modern and responsive laundry service landing page designed to help customers discover laundry services, view transparent pricing, and book directly via WhatsApp.
 
